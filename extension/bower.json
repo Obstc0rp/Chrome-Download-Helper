@@ -1,0 +1,31 @@
+{
+  "name": "chrome-download-directory-manager",
+  "version": "1.0",
+  "homepage": "https://github.com/Obstc0rp/chrome-download-directory-manager",
+  "authors": [
+    "Obstc0rp <wolf.scholle@gmail.com>"
+  ],
+  "description": "This extension manages your donwload directory. Each download gets a subdirectory named as its domain.",
+  "main": "manifest.json",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "chrome",
+    "download",
+    "manager",
+    "directory"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "assets/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jQuery": "2.1.1",
+    "bootstrap": "3.2.0"
+  }
+}

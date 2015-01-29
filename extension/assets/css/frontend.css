@@ -1,0 +1,22 @@
+body {
+	width: 210px;
+	margin: 0 auto;
+	background-color: #fafafa;
+	font-family: 'Source Sans Pro', serif;
+}
+
+h3 {
+	text-align: center;
+}
+
+#pluginActivate {
+	width: 100%;
+}
+
+.btn {
+	border-radius: 0;
+}
+
+hr {
+	margin: 2px;
+}

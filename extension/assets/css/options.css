@@ -1,0 +1,44 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	margin: 0 auto;
+	padding: 10px;
+	background-color: #fafafa;
+	font-family: 'Open Sans', serif;
+	font-weight: 300;
+}
+
+.panel-body * {
+	margin: 5px;
+}
+
+#domains {
+	float: left;
+}
+
+#optionName {
+	margin-top: 32px;
+}
+
+#newDomain {
+	margin-top: 30px;
+}
+
+.btn {
+	border-radius: 0;
+}
+
+.panel-group .panel {
+	border-radius: 0;
+}
+
+.glyphicon-question-sign {
+	opacity: 0.7;
+}
+
+#collapseDescription {
+	padding: 20px;
+}
