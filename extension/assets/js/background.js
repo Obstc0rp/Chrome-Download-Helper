@@ -13,8 +13,6 @@ var openDownloadDir = 'open-download-dir';
  */
 chrome.commands.onCommand.addListener(function(command) {
 
-    console.log('Command: ' + command);
-
 	//open last download
 	if(command == openLastDownload){
 		chrome.downloads.search({}, function(results){	//search for all DownloadItems
