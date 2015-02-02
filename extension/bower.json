@@ -5,7 +5,7 @@
   "authors": [
     "Obstc0rp <wolf.scholle@gmail.com>"
   ],
-  "description": "This extension manages your donwload directory. Each download gets a subdirectory named as its domain.",
+  "description": "This extension helps you managing your donwloads.",
   "main": "manifest.json",
   "moduleType": [
     "globals"
