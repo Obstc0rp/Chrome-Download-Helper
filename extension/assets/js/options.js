@@ -74,4 +74,36 @@ function addEventsOptions(){
 
 		refreshOptions();
 	});
+
+
+	/**
+	 * export managerObject to JSON
+	 */
+	$('#export').click(function(){
+		var url = window.webkitURL;
+
+		//create blob
+		var mime_type = 'text/plain';
+		var bb = new Blob([JSON.stringify(managerObject)], {type: mime_type});
+
+		//create link
+		var a = document.createElement('a');
+		a.download = 'download-manager.json';
+		a.href = window.URL.createObjectURL(bb);
+		a.dataset.downloadurl = [mime_type, a.download, a.href].join(':');
+
+		a.click();
+	});
+
+	/**
+	 * import managerObject from JSON
+	 */
+	 $('#import').click(function(){
+
+	 	//TODO
+	 	//open data selector
+	 	//read content
+	 	//validate content
+	 	//save
+	 });
 }
