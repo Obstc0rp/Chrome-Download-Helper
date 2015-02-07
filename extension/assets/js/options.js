@@ -100,10 +100,35 @@ function addEventsOptions(){
 	 */
 	 $('#import').click(function(){
 
-	 	//TODO
-	 	//open data selector
-	 	//read content
-	 	//validate content
-	 	//save
+	 	var file = document.getElementById('manager-object').files[0];
+
+	 	var fr = new FileReader();
+	 	fr.onload = function(){
+		 	var res = fr.result;
+
+
+		 	var managerObjectBuffer = JSON.parse(res);
+		 	console.log(managerObjectBuffer);
+		 	
+		 	//must contain following attributes
+		 	if(managerObjectBuffer.activated !== 'undefined' &&
+		 		managerObjectBuffer.allPages !== 'undefined' &&
+		 		managerObjectBuffer.domains !== 'undefined'){
+
+		 		//the attributes must be instances of following types
+		 		if(typeof managerObjectBuffer.activated == 'boolean' &&
+		 			typeof managerObjectBuffer.allPages == 'boolean' &&
+		 			managerObjectBuffer.domains instanceof Array){
+		 			managerObject = managerObjectBuffer;
+					localStorage.setItem(storageItem, JSON.stringify(managerObject));
+					refreshOptions();
+				} else {
+		 			alert('Die Datei besitzt keine zulaessigen Werte.');
+		 		}
+		 	} else {
+		 		alert('Die Datei besitzt keine zulaessigen Werte.');
+		 	}
+	 	}
+	 	fr.readAsText(file);
 	 });
 }
