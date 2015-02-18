@@ -16,8 +16,6 @@ chrome.commands.onCommand.addListener(function(command) {
 	//open last download
 	if(command == openLastDownload){
 		chrome.downloads.search({}, function(results){	//search for all DownloadItems
-			
-            console.log(results);
 
             for(var i = results.length-1; i >= 0; i--){
                 if(results[i].exists){
