@@ -17,8 +17,14 @@ chrome.commands.onCommand.addListener(function(command) {
 	if(command == openLastDownload){
 		chrome.downloads.search({}, function(results){	//search for all DownloadItems
 			
-			if(results[results.length-1].id)
-				chrome.downloads.open(results[results.length-1].id);	//open the last DownloadItem
+            console.log(results);
+
+            for(var i = results.length-1; i >= 0; i--){
+                if(results[i].exists){
+                    chrome.downloads.open(results[i].id);   //open the last DownloadItem
+                    break;
+                }
+            }
 		});
 	} else if(command == openDownloadDir) {		//open default download directory
 		chrome.downloads.showDefaultFolder();
@@ -58,7 +64,7 @@ chrome.downloads.onDeterminingFilename.addListener(function(downloadItem, sugges
 
             domain = domain.replace(/([<>*+?^=!:${}()|\[\]\/\\])/g, '');
 
-            suggestion.filename = './' + domain + '/' + downloadItem.filename;
+            suggestion.filename = domain + '/' + downloadItem.filename;
         }else{
 
             var index = managerObject.domains.indexOf(domain);
@@ -67,7 +73,7 @@ chrome.downloads.onDeterminingFilename.addListener(function(downloadItem, sugges
 
                 domain = domain.replace(/([<>*+?^=!:${}()|\[\]\/\\])/g, '');
 
-                suggestion.filename = './' + domain + '/' + downloadItem.filename;
+                suggestion.filename = domain + '/' + downloadItem.filename;
             }else{
 
                 suggestion.filename = downloadItem.filename;
